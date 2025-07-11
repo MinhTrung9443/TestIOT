@@ -1,0 +1,29 @@
+@model List<TimekeepingMVC.Models.PhieuChamCongTongHop>
+@{
+    ViewBag.Title = "Bảng Tổng Hợp Giờ Làm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tổng hợp giờ làm</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tuần</th>
+            <th>Tháng</th>
+            <th>Tổng giờ làm</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.STT</td>
+                <td>@item.Tuan</td>
+                <td>@item.Thang</td>
+                <td>@item.TongGioLam.ToString("F2")</td>
+            </tr>
+        }
+    </tbody>
+</table>

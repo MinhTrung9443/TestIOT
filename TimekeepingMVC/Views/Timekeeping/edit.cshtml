@@ -1,11 +1,12 @@
 @model TimekeepingMVC.Models.PhieuChamCong
 
 @{
-    ViewData["Title"] = "Tạo Phiếu Mới";
+    ViewData["Title"] = "Sửa Phiếu";
 }
 
-<h2>Tạo Phiếu Mới</h2>
-<form asp-action="Create" method="post">
+<h2>Sửa Phiếu</h2>
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
     <div class="form-group">
         <label>STT</label>
         <input asp-for="STT" class="form-control" readonly />

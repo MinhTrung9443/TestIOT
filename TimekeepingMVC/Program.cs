@@ -1,3 +1,8 @@
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
+using TimekeepingMVC.Services;
+using TimekeepingMVC.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -13,6 +18,15 @@ builder.WebHost.UseKestrel(options =>
 });
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.Configure<MongoDbSettings>(
+    builder.Configuration.GetSection("MongoDbSettings"));
+
+builder.Services.AddSingleton<IMongoClient>(sp =>
+    new MongoClient(builder.Configuration.GetSection("MongoDbSettings:ConnectionString").Value));
+
+builder.Services.AddScoped<ITimekeepingService, TimekeepingService>();
+builder.Services.AddScoped<ISummaryService, SummaryService>();
 
 var app = builder.Build();
 

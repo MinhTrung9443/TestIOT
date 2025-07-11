@@ -28,3 +28,12 @@ D:\bt\TimekeepingMVC\obj\Debug\net8.0\refint\TimekeepingMVC.dll
 D:\bt\TimekeepingMVC\obj\Debug\net8.0\TimekeepingMVC.pdb
 D:\bt\TimekeepingMVC\obj\Debug\net8.0\TimekeepingMVC.genruntimeconfig.cache
 D:\bt\TimekeepingMVC\obj\Debug\net8.0\ref\TimekeepingMVC.dll
+D:\bt\TimekeepingMVC\obj\Debug\net8.0\TimekeepingMVC.csproj.AssemblyReference.cache
+D:\bt\TimekeepingMVC\obj\Debug\net8.0\TimekeepingMVC.sourcelink.json
+D:\bt\TimekeepingMVC\bin\Debug\net8.0\DnsClient.dll
+D:\bt\TimekeepingMVC\bin\Debug\net8.0\MongoDB.Bson.dll
+D:\bt\TimekeepingMVC\bin\Debug\net8.0\MongoDB.Driver.dll
+D:\bt\TimekeepingMVC\bin\Debug\net8.0\SharpCompress.dll
+D:\bt\TimekeepingMVC\bin\Debug\net8.0\Snappier.dll
+D:\bt\TimekeepingMVC\bin\Debug\net8.0\ZstdSharp.dll
+D:\bt\TimekeepingMVC\obj\Debug\net8.0\Timekeep.CF1D55DF.Up2Date

@@ -15,6 +15,7 @@
             <th>TĐ Vào</th>
             <th>TĐ Ra</th>
             <th>Tổng Giờ Làm</th>
+            <th>Hành Động</th>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +28,10 @@
                 <td>@item.TDVao</td>
                 <td>@item.TDRa</td>
                 <td>@item.TongGioLam</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Sửa</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa?');">Xóa</a>
+                </td>
             </tr>
         }
     </tbody>
