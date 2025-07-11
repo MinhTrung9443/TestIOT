@@ -1,0 +1,62 @@
+@model TimekeepingMVC.Models.PhieuChamCong
+
+@{
+    ViewData["Title"] = "Tạo Phiếu Mới";
+}
+
+<h2>Tạo Phiếu Mới</h2>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>STT</label>
+        <input asp-for="STT" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label>Ngày</label>
+        <input asp-for="Ngay" class="form-control" type="date" />
+    </div>
+    <div class="form-group">
+        <label>Người</label>
+        <input asp-for="Nguoi" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>TĐ Vào</label>
+        <input asp-for="TDVao" class="form-control" type="time" id="tdVao" />
+    </div>
+    <div class="form-group">
+        <label>TĐ Ra</label>
+        <input asp-for="TDRa" class="form-control" type="time" id="tdRa" />
+    </div>
+    <div class="form-group">
+        <label>Tổng Giờ Làm</label>
+        <input asp-for="TongGioLam" class="form-control" readonly id="tongGioLam" />
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>
+
+<script>
+    // Hàm tính tổng giờ làm
+    function calculateTotalHours() {
+        const tdVao = document.getElementById('tdVao').value;
+        const tdRa = document.getElementById('tdRa').value;
+        const tongGioLam = document.getElementById('tongGioLam');
+
+        if (tdVao && tdRa) {
+            const timeIn = new Date(`1970-01-01T${tdVao}Z`);
+            const timeOut = new Date(`1970-01-01T${tdRa}Z`);
+            if (timeOut > timeIn) {
+                const diffMs = timeOut - timeIn;
+                const diffHours = diffMs / (1000 * 60 * 60); // Chuyển sang giờ
+                tongGioLam.value = diffHours.toFixed(2); // Làm tròn 2 chữ số
+            } else {
+                tongGioLam.value = "0.00"; // Nếu TĐ Ra < TĐ Vào, đặt về 0
+            }
+        } else {
+            tongGioLam.value = ""; // Nếu thiếu dữ liệu, để trống
+        }
+    }
+
+    // Gọi hàm khi người dùng thay đổi TĐ Vào hoặc TĐ Ra
+    document.getElementById('tdVao').addEventListener('change', calculateTotalHours);
+    document.getElementById('tdRa').addEventListener('change', calculateTotalHours);
+</script>

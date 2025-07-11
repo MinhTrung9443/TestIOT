@@ -1,0 +1,33 @@
+@model List<TimekeepingMVC.Models.PhieuChamCong>
+
+@{
+    ViewData["Title"] = "Phiếu Chấm Công";
+}
+
+<h2>Phiếu Chấm Công</h2>
+<a asp-action="Create" class="btn btn-primary">Tạo Phiếu Mới</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Ngày</th>
+            <th>Người</th>
+            <th>TĐ Vào</th>
+            <th>TĐ Ra</th>
+            <th>Tổng Giờ Làm</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.STT</td>
+                <td>@item.Ngay.ToString("yyyy-MM-dd")</td>
+                <td>@item.Nguoi</td>
+                <td>@item.TDVao</td>
+                <td>@item.TDRa</td>
+                <td>@item.TongGioLam</td>
+            </tr>
+        }
+    </tbody>
+</table>
